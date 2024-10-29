@@ -1,6 +1,26 @@
 from tkinter import Tk, BOTH, Canvas
 
-from lines import Line
+
+class Point():
+    def __init__(self, x: int, y: int) -> None:
+        self.x = x
+        self.y = y
+
+
+class Line():
+    def __init__(self, p1: Point, p2: Point) -> None:
+        self.p1 = p1
+        self.p2 = p2
+
+    def draw(self, canvas: Canvas, fill_color="black"):
+        canvas.create_line(
+            self.p1.x,  #x1
+            self.p1.y,  #y1
+            self.p2.x,  #x2
+            self.p2.y,  #y2
+            fill=fill_color,
+            width=2
+        )
 
 
 class Window():
@@ -27,27 +47,6 @@ class Window():
     def close(self):
         self.__running = False
 
-    def draw_line(self, line: Line, fill_color):
+    def draw_line(self, line: Line, fill_color="black"):
         line.draw(self.__canvas, fill_color)
-
-
-# class Point():
-#     def __init__(self, x: int, y: int) -> None:
-#         self.x = x
-#         self.y = y
-
-
-# class Line():
-#     def __init__(self, a: Point, b: Point) -> None:
-#         self.__a = a
-#         self.__b = b
-
-#     def draw(self, canvas: Canvas, fill_color: str):
-#         canvas.create_line(
-#             self.__a.x,  #x1
-#             self.__a.y,  #y1
-#             self.__b.x,  #x2
-#             self.__b.y,  #y2
-#             fill=fill_color,
-#             width=2
-#         )
+        
