@@ -23,6 +23,56 @@ class Line():
         )
 
 
+class Cell():
+    def __init__(self, x1, x2, y1, y2) -> None:
+        self.has_left_wall = True
+        self.has_right_wall = True
+        self.has_top_wall = True
+        self.has_bottom_wall = True
+        self.__x1 = x1
+        self.__x2 = x2
+        self.__y1 = y1
+        self.__y2 = y2
+
+    def draw(self, canvas: Canvas, fill_color="black"):
+        if self.has_left_wall:
+            canvas.create_line(
+                self.__x1,  #x1
+                self.__x1,  #y1
+                self.__y1,  #x2
+                self.__y2,  #y2
+                fill=fill_color,
+                width=2
+            )
+        if self.has_right_wall:
+            canvas.create_line(
+                self.__x2,  #x1
+                self.__y1,  #y1
+                self.__x2,  #x2
+                self.__y2,  #y2
+                fill=fill_color,
+                width=2
+            )
+        if self.has_top_wall:
+            canvas.create_line(
+                self.__x1,  #x1
+                self.__y1,  #y1
+                self.__x2,  #x2
+                self.__y1,  #y2
+                fill=fill_color,
+                width=2
+            )
+        if self.has_bottom_wall:
+            canvas.create_line(
+                self.__x1,  #x1
+                self.__y2,  #y1
+                self.__x2,  #x2
+                self.__y2,  #y2
+                fill=fill_color,
+                width=2
+            )
+
+
 class Window():
     def __init__(self, width, height) -> None:
         # Create root
@@ -44,9 +94,11 @@ class Window():
         while self.__running:
             self.redraw()
 
-    def close(self):
-        self.__running = False
-
     def draw_line(self, line: Line, fill_color="black"):
         line.draw(self.__canvas, fill_color)
-        
+
+    def draw_cell(self, cell: Cell, fill_color="black"):
+        cell.draw(self.__canvas, fill_color)
+
+    def close(self):
+        self.__running = False
