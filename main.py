@@ -20,7 +20,7 @@ def main():
 
     c4 = Cell(win)
     c4.has_top_wall = False
-    c4.draw(100, 300, 500, 500)
+    c4.draw(200, 300, 500, 500)
     c4.draw_move(c3, undo=True)
 
     win.wait_for_close()
