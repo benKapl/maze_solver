@@ -40,5 +40,5 @@ class Cell:
         line = Line(Point(self.x_center, self.y_center), Point(to_cell.x_center, to_cell.y_center))
         line_color = "red"
         if undo:
-            line_color = "grey"
+            line_color = "gray"
         self._win.draw_line(line, line_color)
