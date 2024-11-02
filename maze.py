@@ -1,6 +1,7 @@
 from time import sleep
 
 from cell import Cell
+from graphics import Line, Point
 
 class Maze():
     def __init__(self, x1, y1, 
@@ -16,6 +17,7 @@ class Maze():
         self._win = win
         self._cells = []
         self._create_cells()
+        self._break_entrance_and_exit()
 
     def _create_cells(self):
         self._cells = [[Cell(self._win) for _ in range(self._num_rows)] for _ in range(self._num_cols)]
@@ -40,6 +42,15 @@ class Maze():
             return
         self._win.redraw()
         sleep(0.05)
+
+    def _break_entrance_and_exit(self):
+        self._cells[0][0].has_top_wall = False
+        self._draw_cell(0, 0)
+        self._cells[self._num_cols - 1][self._num_rows - 1].has_bottom_wall = False
+        self._draw_cell(self._num_cols - 1, self._num_rows - 1)
+
+
+
 
     
 
