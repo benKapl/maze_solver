@@ -1,3 +1,4 @@
+import random
 from time import sleep
 
 from cell import Cell
@@ -7,7 +8,7 @@ class Maze():
     def __init__(self, x1, y1, 
                  num_rows, num_cols, 
                  cell_size_x, cell_size_y, 
-                 win,):
+                 win, seed=None):
         self._x1 = x1
         self._y1 = y1
         self._num_rows = num_rows
@@ -18,6 +19,8 @@ class Maze():
         self._cells = []
         self._create_cells()
         self._break_entrance_and_exit()
+        if seed is not None:
+            random.seed(seed)
 
     def _create_cells(self):
         self._cells = [[Cell(self._win) for _ in range(self._num_rows)] for _ in range(self._num_cols)]
@@ -48,6 +51,14 @@ class Maze():
         self._draw_cell(0, 0)
         self._cells[self._num_cols - 1][self._num_rows - 1].has_bottom_wall = False
         self._draw_cell(self._num_cols - 1, self._num_rows - 1)
+
+    def _break_walls_r(self, i, j):
+        self._cells[i][j].visited = True
+
+        while True:
+            pass
+
+    
 
 
 

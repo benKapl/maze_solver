@@ -1,3 +1,5 @@
+import random
+
 from pprint import pprint
 
 from graphics import Window
@@ -17,4 +19,13 @@ def main():
     win.wait_for_close()
 
 if __name__ == "__main__":
-    main()
+    win = Window(800, 600)
+
+    num_cols = 5
+    num_rows = 5
+    m1 = Maze(30, 30, num_rows, num_cols, 40, 40, win)
+
+    print(m1._random)
+    # print(random.seed(3))
+
+    # main()
