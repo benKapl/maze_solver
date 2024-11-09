@@ -21,6 +21,7 @@ class Maze():
         self._break_entrance_and_exit()
         if seed is not None:
             random.seed(seed)
+        self._break_walls_r(0,0)
 
     def _create_cells(self):
         self._cells = [[Cell(self._win) for _ in range(self._num_rows)] for _ in range(self._num_cols)]
@@ -77,7 +78,7 @@ class Maze():
             visitable_cells = [cell for cell in adjacent_cells if not cell.visited]
 
             if not visitable_cells:
-                current._draw_cell()
+                self._draw_cell(i, j)
                 return
             
             # if some adjacent_cells are visitable : break wall and go to it
