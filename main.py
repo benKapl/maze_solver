@@ -10,8 +10,8 @@ from maze import Maze
 def main():
     win = Window(800, 600)
 
-    num_cols = 10
-    num_rows = 10
+    num_cols = 5
+    num_rows = 5
     m1 = Maze(30, 30, num_rows, num_cols, 40, 40, win)
     # m1._break_entrance_and_exit()
 
