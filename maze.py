@@ -23,7 +23,6 @@ class Maze():
             random.seed(seed)
         self._break_walls_r(0,0)
         self._reset_cells_visited()
-        self.solve()
 
     def _create_cells(self):
         self._cells = [[Cell(self._win) for _ in range(self._num_rows)] for _ in range(self._num_cols)]
