@@ -8,8 +8,8 @@ from maze import Maze
 
 
 def main():
-    num_rows = 12
-    num_cols = 16
+    num_rows = 5
+    num_cols = 6
     margin = 50
     screen_x = 800
     screen_y = 600
@@ -24,6 +24,6 @@ def main():
     win.wait_for_close()
 
 if __name__ == "__main__":
-   
+
    
     main()
