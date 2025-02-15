@@ -1,5 +1,7 @@
 # Maze Solver
 
+![Demo](/maze_solver.gif)
+
 - GUI desktop app that automatically renders a random maze and solves it using a recursive Python algorithm.
 - The GUI is made with tkinter Python native library.
 
